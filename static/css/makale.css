@@ -1,0 +1,111 @@
+.iklimdegisikligimakale {
+    color: black;
+    font-size: 20px;
+}
+
+h1 {
+    color: black;
+    font-size: 20px;
+}
+
+h2 {
+    color: black;
+    font-size: 15px;
+}
+
+.LAyangin {
+    position: absolute;
+    top: 700px;
+    right: 10px;
+}
+
+.GKyangin {
+    position: absolute;
+    top: 2000px;
+    right: 400px;
+}
+
+.Avustralya {
+    position: absolute;
+    top: 2500px;
+    right: 360px;
+}
+
+.besdensonra {
+    width: 90%; /* Resmin genişliğini kapsayıcı elemanın genişliğinin %50'si kadar ayarlar */
+    height: auto;
+}
+
+.Los_Angeles {
+    position: absolute;
+    top: 1600px;
+    right: 425px;
+    font-size: 20px;
+}
+
+.Guney_Kore {
+    position: absolute;
+    top: 2225px;
+    right: 425px;
+    font-size: 20px;
+}
+
+.Ayangin {
+    position: absolute;
+    top: 2670px;
+    right: 450px;
+    font-size: 20px;
+}
+
+.besyil {
+    position: absolute;
+    top: 3070px;
+    right: 450px;
+    font-size: 20px;
+}
+
+.Los_Angeles_makale {
+    position: absolute;
+    top: 1650px;
+    right: 50px;
+    font-size: 20px;
+}
+
+.Guney_Kore_makale {
+    position: absolute;
+    top: 2250px;
+    right: 55px;
+    font-size: 20px;
+}
+
+.Avustralya_makale {
+    position: absolute;
+    top: 2700px;
+    right: 10px;
+    font-size: 20px;
+}
+
+.besmakale {
+    position: absolute;
+    top: 3100px;
+    right: 10px;
+    font-size: 20px;
+}
+
+.geridon {
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none; 
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.geridon:hover {
+    background-color: greenyellow;
+}
