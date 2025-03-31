@@ -1,0 +1,27 @@
+h1{
+    color: black;
+    font-size: 20px;
+}
+
+h2 {
+    color: black;
+    font-size: 15px;
+}
+
+button {
+    position: fixed;
+    top: 20px; 
+    right: 20px; 
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none; 
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+button:hover {
+    background-color: greenyellow;
+}
