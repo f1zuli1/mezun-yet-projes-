@@ -7,6 +7,68 @@
     <link rel="stylesheet" href="../static/css/shop.css">
 </head>
 <body>
-    <h1>Deneme1</h1>
+    <header class="header">
+        <nav class="header__nav main-nav">
+          <ul class="main-nav__list main-list">
+            <li class="main-list__item list-item">
+                <a class="list-item__link" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="main-list__item list-item">
+              <a class="list-item__link" href="makale.html">MAKALE</a>
+            </li>
+            <li class="main-list__item list-item">
+              <a class="list-item__link" href="shop.html">SHOP</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    
+    <button class="sepetee" onclick="window.location.href='sepet.html'">Sepet</button>
+    <div class="Urunler">
+        <div class="urun1">
+            <img src="../static/img/cuzdan.jfif", width="110", height="100">
+            <button class="detay1" onclick="window.location.href='../Urunler/urun1.html'">Detay</button>
+            <P>T-Shirt</P>
+            <p>Fiyat : 1000TL</p>
+            <button class="sepeteEkle" onclick="sepeteEkle('Cuzdan', 1000)">Sepete Ekle</button>
+        </div>
+
+        <div class="urun2">
+            <img src="../static/img/plastikcanta.webp", width="110", height="100">
+            <button class="detay2" onclick="window.location.href='../Urunler/urun2.html'">Detay</button>
+            <P>T-Shirt</P>
+            <p>Fiyat : 1000TL</p>
+            <button class="sepeteEkle" onclick="sepeteEkle('Canta', 1000)">Sepete Ekle</button>
+        </div>
+
+        <div class="urun3">
+            <img src="../static/img/t-shirt.png", width="110", height="100">
+            <button class="detay3" onclick="window.location.href='../Urunler/urun3.html'">Detay</button>
+            <P>T-Shirt</P>
+            <p>Fiyat : 1000TL</p>
+            <button class="sepeteEkle" onclick="sepeteEkle('T-Shirt', 1000)">Sepete Ekle</button>
+        </div>
+
+        <div class="urun4">
+            <img src="../static/img/plastiikayakkabi.webp", width="110", height="100">
+            <button class="detay4" onclick="window.location.href='../Urunler/urun4.html'">Detay</button>
+            <P>T-Shirt</P>
+            <p>Fiyat : 1000TL</p>
+            <button class="sepeteEkle" onclick="sepeteEkle('Ayakkabi', 1000)">Sepete Ekle</button>
+        </div>
+    </div>
+
+    <script>
+        function sepeteEkle(urunAdi, fiyat) {
+            let sepet = JSON.parse(localStorage.getItem("sepet")) || []; // Mevcut sepeti al
+    
+            sepet.push({ isim: urunAdi, fiyat: fiyat }); // Yeni ürünü sepete ekle
+    
+            localStorage.setItem("sepet", JSON.stringify(sepet)); // Güncellenmiş sepeti kaydet
+    
+            alert(urunAdi + " sepete eklendi!");
+        }
+    </script>
+
 </body>
 </html>
