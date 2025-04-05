@@ -1,0 +1,62 @@
+body {
+    background-color: white;
+}
+
+.geri2 {
+    position: fixed; /* Sayfa kaydırılsa bile sabit kalır */
+    top: 80px; /* Sayfanın üstünden 20 piksel boşluk bırak */
+    right: 20px; /* Sayfanın sağından 20 piksel boşluk bırak */
+    padding: 15px 30px; /* Buton boyutunu büyüt */
+    background-color: #4CAF50; /* Buton rengi */
+    color: white; /* Yazı rengi */
+    border: none; /* Kenarlığı kaldır */
+    border-radius: 10px; /* Kenarları yuvarlat */
+    font-size: 16px; /* Yazı boyutunu artır */
+    cursor: pointer; /* Üzerine gelince el işareti */
+    z-index: 9999; /* Diğer ögelerin üstünde kalmasını sağlar */
+}
+
+.geri2:hover {
+    background-color: green;
+}
+
+.sepeteEkle {
+    position: fixed; /* Sayfa kaydırılsa bile sabit kalır */
+    top: 500px; /* Sayfanın üstünden 20 piksel boşluk bırak */
+    right: 200px; /* Sayfanın sağından 20 piksel boşluk bırak */
+    left: 200px;
+    padding: 15px 30px; /* Buton boyutunu büyüt */
+    background-color: #007bff; /* Yazı rengi */
+    color: white;
+    border: none; /* Kenarlığı kaldır */
+    border-radius: 10px; /* Kenarları yuvarlat */
+    font-size: 16px; /* Yazı boyutunu artır */
+    cursor: pointer; /* Üzerine gelince el işareti */
+    z-index: 9999; /* Diğer ögelerin üstünde kalmasını sağlar */
+}
+
+.sepeteEkle:hover {
+    background-color: #0056b3;
+}
+
+.uname2 {
+    color: black;
+    position: absolute;
+    top: 350px;
+    right: 725px;
+}
+
+.fiyat2 {
+    color: black;
+    position: absolute;
+    top: 400px;
+    right: 605px;
+}
+
+.foto2 {
+    position: absolute;
+    top: 50px;
+    right: 600px;
+    width: 300px;
+    height: 300px;
+}
