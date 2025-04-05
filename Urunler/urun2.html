@@ -1,0 +1,33 @@
+S<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Shirt</title>
+    <link rel="stylesheet" href="../static/css/urun2.css">
+</head>
+<body>
+    <button class="geri2" onclick="window.location.href='../templates/shop.html'">Geri</button>
+    
+    <img  class="foto2" src="../static/img/plastikcanta.webp">
+    <h1 class="uname2">Canta</h1>
+    <h1 class="fiyat2">Fiyat : 1000TL</h1>
+    <button class="sepeteEkle" data-isim="Canta" data-fiyat="1000 TL" data-resim="../static/img/plastikcanta.webp">Sepete Ekle</button>
+
+    <script>
+        document.querySelector(".sepeteEkle").addEventListener("click", function() {
+            let urun = {
+                isim: this.getAttribute("data-isim"),  // Burada "T-Shirt" gelecek
+                fiyat: this.getAttribute("data-fiyat"),
+                resim: this.getAttribute("data-resim")
+            };
+
+            let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+            sepet.push(urun);
+            localStorage.setItem("sepet", JSON.stringify(sepet));
+
+            alert(urun.isim + " sepete eklendi!"); // Bildirimde "Ürün 1" yerine "T-Shirt" yazacak
+        });
+    </script>
+</body>
+</html>
