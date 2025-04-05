@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepet</title>
+    <link rel="stylesheet" href="../static/css/sepet.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="header__nav main-nav">
+          <ul class="main-nav__list main-list">
+            <li class="main-list__item list-item">
+                <a class="list-item__link" href="index.html">ANA SAYFA</a>
+            </li>
+            <li class="main-list__item list-item">
+              <a class="list-item__link" href="makale.html">MAKALE</a>
+            </li>
+            <li class="main-list__item list-item">
+              <a class="list-item__link" href="shop.html">SHOP</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+    <button class="ana" onclick="window.location.href='shop.html'">Shop</button>
+  
+    <div id="sepetListesi"></div>
+
+    <button class="temizle" id="sepetiTemizle">Sepeti Temizle</button> <!-- Sepeti Temizle butonunun class'ını buraya verdik -->
+
+    <script>
+        function sepetiGoster() {
+            let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+            let sepetDiv = document.getElementById("sepetListesi");
+            sepetDiv.innerHTML = "";
+
+            if (sepet.length === 0) {
+                sepetDiv.innerHTML = "<p>Sepetiniz boş.</p>";
+                return;
+            }
+
+            sepet.forEach((urun, index) => {
+                let urunDiv = document.createElement("div");
+                urunDiv.classList.add("cart-item");
+                urunDiv.innerHTML = `
+                    <div>
+                        <strong>${urun.isim}</strong> - ${urun.fiyat} TL
+                        <button onclick="urunSil(${index})">X</button>
+                    </div>
+                `;
+                sepetDiv.appendChild(urunDiv);
+            });
+        }
+
+        function urunSil(index) {
+            let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+            sepet.splice(index, 1);
+            localStorage.setItem("sepet", JSON.stringify(sepet));
+            sepetiGoster();
+        }
+
+        document.getElementById("sepetiTemizle").addEventListener("click", function() {
+            localStorage.removeItem("sepet");
+            sepetiGoster();
+        });
+
+        sepetiGoster();
+    </script>
+
+</body>
+</html>
