@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bagis.css">
+    <title>Bagis</title>
+    <link rel="icon" href="../static/img/iklimkrizi.jfif" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+        <nav class="header__nav main-nav">
+          <ul class="main-nav__list main-list">
+            <li class="main-list__item list-item">
+              <a class="list-item__link" href="index.html">ANA SAYFA</a>
+            </li>
+            <li class="main-list__item list-item">
+              <a class="list-item__link" href="makale.html">MAKALE</a>
+            </li>
+            <li class="main-list__item list-item">
+              <a class="list-item__link" href="shop.html">SHOP</a>
+            </li>
+            <li class="main-list__item list-item">
+              <a class="list-item__link" href="bagis.html">BAGIS</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+    <div class="container">
+        <h2>Bağış Miktarı (TL)</h2>
+        <div class="range-container">
+            <input type="range" class="bagismiktari" min="1" max="1000000" value="50000">
+            <div class="para-miqdari">1000</div>
+        </div>
+        <div class="input-container">
+            <label for="manualBagis">Veya kendi miktarınızı girin:</label>
+            <input type="number" id="manualBagis" min="1" max="1000000">
+        </div>
+        <button onclick="prosesBagis()">Bagis Yap</button>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.bagismiktari');
+        const paraMiqdariDiv = document.querySelector('.para-miqdari');
+        const manualBagisInput = document.getElementById('manualBagis');
+
+        slider.addEventListener('input', function() {
+            const value = parseInt(this.value);
+            paraMiqdariDiv.textContent = value;
+            manualBagisInput.value = value;
+            updateParaMiqdariPosition(value);
+        });
+
+        manualBagisInput.addEventListener('input', function() {
+            const value = parseInt(this.value);
+            if (value >= parseInt(this.min) && value <= parseInt(this.max)) {
+                slider.value = value;
+                paraMiqdariDiv.textContent = value;
+                updateParaMiqdariPosition(value);
+            } else if (isNaN(value)) {
+                slider.value = slider.min;
+                paraMiqdariDiv.textContent = slider.min;
+                this.value = '';
+                updateParaMiqdariPosition(parseInt(slider.min));
+            } else {
+                if (value < parseInt(this.min)) {
+                    this.value = this.min;
+                    slider.value = this.min;
+                    paraMiqdariDiv.textContent = this.min;
+                    updateParaMiqdariPosition(parseInt(this.min));
+                } else {
+                    this.value = this.max;
+                    slider.value = this.max;
+                    paraMiqdariDiv.textContent = this.max;
+                    updateParaMiqdariPosition(parseInt(this.max));
+                }
+            }
+        });
+
+        function updateParaMiqdariPosition(value) {
+            const thumbPosition = (value - parseInt(slider.min)) / (parseInt(slider.max) - parseInt(slider.min));
+            const offset = (thumbPosition * slider.offsetWidth) - (paraMiqdariDiv.offsetWidth / 2);
+            paraMiqdariDiv.style.left = `${offset}px`;
+        }
+
+        window.addEventListener('load', function() {
+            const initialValue = parseInt(slider.value);
+            paraMiqdariDiv.textContent = initialValue;
+            manualBagisInput.value = initialValue;
+            updateParaMiqdariPosition(initialValue);
+        });
+
+        function prosesBagis() {
+            const bagisMiktari = parseInt(manualBagisInput.value);
+            if (!isNaN(bagisMiktari) && bagisMiktari >= 1 && bagisMiktari <= 1000) {
+                alert(`Tesekkurler! ${bagisMiktari} TL bu siteye bagis yaptiniz.`);
+                // Burada serverə bağış məlumatlarını göndərmək üçün kod yaza bilərsiniz.
+            } else {
+                alert("Bagis Yaptiginiz Icin Tesekkur Ederim!");
+            }
+        }
+    </script>
+</body>
+</html>
